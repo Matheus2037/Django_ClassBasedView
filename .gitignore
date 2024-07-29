@@ -1,0 +1,13 @@
+_pycache_
+
+*.*-
+
+*.pyc
+
+.idea
+
+template
+
+media
+
+.venv
