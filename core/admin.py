@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Cargo, Servicos, Equipe
+
+@admin.register(Cargo)
+class CargoAdmin(admin.ModelAdmin):
+    list_display = ('cargo', 'ativo', 'modificado')
+
+@admin.register(Servicos)
+class ServicoAdmin(admin.ModelAdmin):
+    list_display = ('servico', 'icone', 'ativo', 'modificado')
+
+@admin.register(Equipe)
+class FuncionarioAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'cargo', 'ativo', 'modificado')
