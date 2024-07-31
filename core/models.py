@@ -61,3 +61,22 @@ class Equipe(Base):
         verbose_name_plural = "Funcionários"
     def __str__(self):
         return self.nome
+
+
+class Features(Base):
+    F_ICONE_CHOICE = (
+        ('lni-rocket', 'Foguete'),
+        ('lni-laptop-phone', 'Laptop'),
+        ('lni-cog', 'Engrenagem'),
+        ('lni-leaf', 'Folha'),
+        ('lni-layers', 'Camadas')
+    )
+    nome = models.CharField("Nome", max_length=100)
+    descricao = models.TextField("Descrição", max_length=250)
+    icone = models.CharField("Icone", max_length=16, choices=F_ICONE_CHOICE)
+
+    class Meta:
+        verbose_name = "Funcionalidade"
+        verbose_name_plural = "Funcionalidades"
+    def __str__(self):
+        return self.nome
