@@ -1,5 +1,16 @@
 {% load static %}
+
 <div id="hero-area" class="hero-area-bg">
+  <div class="container">
+    {% if messages %}
+      {% for m in messages %}
+        <div class="alert alert-{{ m.tag }}">
+          <button type="button" class="close" data-dismiss="alert"></button>
+          <strong>{{ m }}</strong>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
         <div class="container">
           <div class="row">
             <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
@@ -20,5 +31,6 @@
           </div>
         </div>
 </div>
-    </header>
-    <!-- Header Area wrapper End -->
+
+</header>
+<!-- Header Area wrapper End -->
