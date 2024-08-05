@@ -100,3 +100,15 @@ class Planos(Base):
         verbose_name_plural = "Planos"
     def __str__(self):
         return self.nome
+
+
+class Avaliacao(Base):
+    nome = models.CharField("Nome", max_length=100)
+    cargo = models.CharField("Cargo", max_length=100)
+    avaliacao = models.CharField("Avaliação", max_length=100)
+    PfP = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 75, 'height': 75, 'crop': True}})
+    class Meta:
+        verbose_name = "Avaliação"
+        verbose_name_plural = "Avaliações"
+    def __str__(self):
+        return self.nome
