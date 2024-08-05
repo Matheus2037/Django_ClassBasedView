@@ -80,3 +80,23 @@ class Features(Base):
         verbose_name_plural = "Funcionalidades"
     def __str__(self):
         return self.nome
+
+class Planos(Base):
+    P_ICONE_CHOICE = (
+        ('lni-package', 'Caixa'),
+        ('lni-drop', 'Gota'),
+        ('lni-star', 'Estrela')
+    )
+    nome = models.CharField("Nome", max_length=100)
+    valor = models.FloatField("Valor")
+    usuario = models.CharField("Usuários", max_length=100)
+    capacidade = models.CharField("Capacidade", max_length=100)
+    suporte = models.CharField("Suporte", max_length=100)
+    atualizacoes = models.CharField("Atualizações", max_length=100)
+    icone = models.CharField("Icone", max_length=20, choices=P_ICONE_CHOICE, default='lni-package')
+
+    class Meta:
+        verbose_name = "Plano"
+        verbose_name_plural = "Planos"
+    def __str__(self):
+        return self.nome
