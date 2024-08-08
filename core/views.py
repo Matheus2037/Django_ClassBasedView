@@ -15,12 +15,25 @@ class IndexView(FormView):
         context['servicos'] = Servicos.objects.order_by('?').all()
         context['equipe'] = Equipe.objects.order_by('?').all()
         context['planos'] = Planos.objects.all()
-        context['avaliacao'] = Avaliacao.objects.order_by('?').all()
+        
 
         features = Features.objects.order_by('?').all()
         metade = len(features) // 2
         context['features_col1'] = features[:metade]
         context['features_col2'] = features[metade:]
+        
+        context['avaliacao'] = Avaliacao.objects.order_by('?').all()
+        avali = Avaliacao.objects.order_by('?').all()
+        avali_com_estrelas = []
+
+        for a in avali:
+            lista_estrela = ['b' for _ in range(a.estrela)]  # Cria uma lista com 'b' repetido 'a.estrela' vezes
+            avali_com_estrelas.append({
+                'avaliacao': a,
+                'estrelas': lista_estrela
+            })
+
+        context['avali'] = avali_com_estrelas
         return context
 
     def form_valid(self, form, *args, **kwargs):
