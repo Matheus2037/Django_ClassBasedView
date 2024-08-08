@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from stdimage import StdImageField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 def get_file_path(_instance, filename):
     ext = filename.split('.')[-1]
@@ -106,6 +107,7 @@ class Avaliacao(Base):
     nome = models.CharField("Nome", max_length=100)
     cargo = models.CharField("Cargo", max_length=100)
     avaliacao = models.CharField("Avaliação", max_length=100)
+    estrela = models.IntegerField("Estrelas", default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
     PfP = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 75, 'height': 75, 'crop': True}})
     class Meta:
         verbose_name = "Avaliação"

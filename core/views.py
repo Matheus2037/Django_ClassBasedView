@@ -2,7 +2,7 @@ from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-from .models import Equipe, Servicos, Features, Planos
+from .models import Equipe, Servicos, Features, Planos, Avaliacao
 from .forms import ContatoForm
 
 class IndexView(FormView):
@@ -15,6 +15,7 @@ class IndexView(FormView):
         context['servicos'] = Servicos.objects.order_by('?').all()
         context['equipe'] = Equipe.objects.order_by('?').all()
         context['planos'] = Planos.objects.all()
+        context['avaliacao'] = Avaliacao.objects.order_by('?').all()
 
         features = Features.objects.order_by('?').all()
         metade = len(features) // 2
