@@ -9,3 +9,5 @@ _pycache_
 template
 
 .venv
+
+htmlcov/*
