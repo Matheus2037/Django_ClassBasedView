@@ -21,16 +21,17 @@ class IndexView(FormView):
         metade = len(features) // 2
         context['features_col1'] = features[:metade]
         context['features_col2'] = features[metade:]
-        
-        context['avaliacao'] = Avaliacao.objects.order_by('?').all()
+
         avali = Avaliacao.objects.order_by('?').all()
         avali_com_estrelas = []
 
         for a in avali:
             lista_estrela = ['b' for _ in range(a.estrela)]  # Cria uma lista com 'b' repetido 'a.estrela' vezes
+            list_estrelaNull = ['c' for _ in range(5 - a.estrela)] # Criando uma lista com 'c' para o restante da conta de 5(limite de estrelas) menos quantidade de estrela
             avali_com_estrelas.append({
                 'avaliacao': a,
-                'estrelas': lista_estrela
+                'estrelas': lista_estrela,
+                'estrelasN': list_estrelaNull
             })
 
         context['avali'] = avali_com_estrelas

@@ -1,5 +1,4 @@
 {% load static %}
-{% load custom_tags %}
 <section id="testimonial" class="testimonial section-padding">
       <div class="container">
         <div class="row justify-content-center">
@@ -21,7 +20,9 @@
                       {% for e in item.estrelas %}
                         <span><i class="lni-star-filled"></i></span>
                       {% endfor %}
+                      {% for f in item.estrelasN %}
                         <span><i class="lni-star-half"></i></span>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
