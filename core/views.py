@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import Equipe, Servicos, Features, Planos, Avaliacao
 from .forms import ContatoForm
 
+#Testando email usado para efetuar commits no trabalho
+
 class IndexView(FormView):
     template_name = 'index.html'
     form_class = ContatoForm
