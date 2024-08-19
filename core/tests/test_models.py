@@ -12,3 +12,31 @@ class GetFilePathTestCase(TestCase):
     def test_get_file_path(self):
         arquivo = get_file_path(None, 'teste.png')
         self.assertTrue(len(arquivo), len(self.filename))
+
+
+class ServicosTestCase(TestCase):
+    
+    def setUp(self):
+        self.servicos = mommy.make("Servicos")
+
+    def test_str(self):
+        self.assertEquals(str(self.servicos), (self.servicos.servico))
+
+
+
+class CargoTestCase(TestCase):
+    
+    def setUp(self):
+        self.cargo = mommy.make("Cargo")
+
+    def test_str(self):
+        self.assertEquals(str(self.cargo), (self.cargo.cargo))
+
+
+class EquipeTestCase(TestCase):
+
+    def setUp(self):
+        self.equipe = mommy.make("Equipe")
+
+    def test_str(self):
+        self.assertEquals(str(self.equipe), (self.equipe.nome))
