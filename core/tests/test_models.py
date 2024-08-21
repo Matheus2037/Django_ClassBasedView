@@ -40,3 +40,31 @@ class EquipeTestCase(TestCase):
 
     def test_str(self):
         self.assertEquals(str(self.equipe), (self.equipe.nome))
+
+
+
+class FeaturesTestCase(TestCase):
+
+    def setUp(self):
+        self.feature = mommy.make("Features")
+
+    def test_str(self):
+        self.assertEquals(str(self.feature), (self.feature.nome))
+
+
+class PlanosTestCase(TestCase):
+
+    def setUp(self):
+        self.plano = mommy.make("Planos")
+
+    def test_str(self):
+        self.assertEquals(str(self.plano), (self.plano.nome))
+
+
+class AvaliacaoTestCase(TestCase):
+
+    def setUp(self):
+        self.avaliacao = mommy.make("Avaliacao")
+
+    def test_str(self):
+        self.assertEquals(str(self.avaliacao), (self.avaliacao.nome))
