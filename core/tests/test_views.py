@@ -17,6 +17,8 @@ class IndexViewTestCase(TestCase):
         }
         self.cliente = Client()
 
+        self.avaliacao = mommy.make("Avaliacao")
+
 
     def test_form_valid(self):
         request = self.cliente.post(reverse_lazy('index'), data=self.dados)
@@ -30,15 +32,16 @@ class IndexViewTestCase(TestCase):
         request = self.cliente.post(reverse_lazy('index'), data=dados)
         self.assertEquals(request.status_code, 200)
 
-
-class IndexViewForTextCase(TestCase):
-    
-    def setUp(self):
-
-        self.avaliacao = mommy.make("Avaliacao")
-
     def test_for_estrela(self):
 
         lista_estrela = ['b' for _ in range(self.avaliacao.estrela)]
 
-        self.assertEqual(len(lista_estrela), self.avaliacao.estrela)
+        self.assertEquals(len(lista_estrela), self.avaliacao.estrela)
+
+
+    def test_for_sem_estrela(self):
+
+        list_estrelaNull = ['c' for _ in range(5 - self.avaliacao.estrela)]
+
+        self.assertEquals(len(list_estrelaNull), 5 - self.avaliacao.estrela)
+
